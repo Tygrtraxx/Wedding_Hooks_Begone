@@ -5341,10 +5341,12 @@ ep2_wedding.1131 = {
 	option = {
 		name = ep2_wedding.1131.a
 		scope:other_spouse = {
-			add_opinion = {
+			add_opinion = 
+			{
 				target = root
 				modifier = wedding_understanding_spouse_opinion
 			}
+		}
 		###########################################################
 		#            ORIGINAL CODE BELOW, COMMENTED OUT           #
 		###########################################################
@@ -5520,9 +5522,11 @@ ep2_wedding.1132 = {
 			}
 		}
 		scope:other_spouse = {
-			add_opinion = {
+			add_opinion = 
+			{
 				target = root
 				modifier = opened_my_eyes_opinion
+			}
 		}
 		
 		###########################################################
@@ -5570,9 +5574,12 @@ ep2_wedding.1132 = {
 	option = {
 		name = ep2_wedding.1132.b
 		scope:spouse_with_secret = {
-			add_opinion = {
+			add_opinion = 
+			{
 				target = root
 				modifier = kept_my_secret_opinion
+			}
+		}
 		###########################################################
 		#            ORIGINAL CODE BELOW, COMMENTED OUT           #
 		###########################################################
@@ -12647,10 +12654,12 @@ ep2_wedding.1300 = {
 	left_portrait = {
 		character = root
 		animation = thinking
+		outfit_tags = { no_clothes }					  
 	}
 	right_portrait = {
 		character = scope:spouse_2
 		animation = worry
+		outfit_tags = { no_clothes }					  
 	}
 
 	cooldown = { years = 10 }
@@ -13347,10 +13356,12 @@ ep2_wedding.1301 = { #Spouse response
 	left_portrait = {
 		character = scope:spouse_1
 		animation = thinking
+		outfit_tags = { no_clothes }					  
 	}
 	right_portrait = {
 		character = root
 		animation = worry
+		outfit_tags = { no_clothes }					  
 	}
 
 	option = { #I want to be worthy of your love...
@@ -17615,10 +17626,12 @@ ep2_wedding.3030 = {
 			animation = flirtation_left
 		}
 		animation = love
+		outfit_tags = { no_clothes }					  
 	}
 	right_portrait = {
 		character = scope:my_spouse
 		animation = flirtation
+		outfit_tags = { no_clothes }					  
 	}
 	artifact = {
 		target = scope:love_memento
@@ -19190,7 +19203,7 @@ ep2_wedding.3300 = {
 	theme = wedding_night_activity
 	left_portrait = {
 		character = root
-		outfit_tags = { nightgown }
+
 		triggered_animation = {
 			trigger = {
 				OR = {
@@ -19210,10 +19223,11 @@ ep2_wedding.3300 = {
 			animation = flirtation_left
 		}
 		animation = idle
+		outfit_tags = { no_clothes }					  
 	}
 	right_portrait = {
 		character = scope:my_spouse
-		outfit_tags = { nightgown }
+
 		triggered_animation = {
 			trigger = {
 				OR = {
@@ -19233,6 +19247,7 @@ ep2_wedding.3300 = {
 			animation = flirtation
 		}
 		animation = idle
+		outfit_tags = { no_clothes }					  
 	}
 	lower_left_portrait = scope:bedding_witness_1
 	lower_center_portrait = scope:bedding_witness_2
@@ -21273,7 +21288,7 @@ ep2_wedding.3420 = {
 							is_eunuch_trigger = no
 							NOR = {
 								has_trait = celibate
-								has_trait = devoted					
+								has_trait = devoted
 							}
 						}
 						modifier = {
@@ -22066,7 +22081,7 @@ scripted_trigger ep2_wedding_3500_active_bedroom_trigger = {
 	}
 	scope:other_family_spouse = {
 		is_eunuch_trigger = no
-		NOT = { has_trait = celibate }	
+		NOT = { has_trait = celibate }
 	}
 }
 
