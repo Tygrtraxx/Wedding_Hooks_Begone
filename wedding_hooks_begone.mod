@@ -1,9 +1,9 @@
-version="1.14.2.*"
+version="1.14.3.*"
 tags={
 	"Fixes"
 	"Events"
 }
 name="Wedding Hooks, Begone!"
-supported_version="1.14.2.*"
+supported_version="1.14.3.*"
 path="C:/Documents/Paradox Interactive/Crusader Kings III/mod/wedding_hooks_begone"
 remote_file_id="3226148522"
