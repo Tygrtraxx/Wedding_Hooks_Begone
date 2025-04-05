@@ -5318,6 +5318,7 @@ ep2_wedding_ewan.0053 = {
 
 # Find an old coot to chatter on.
 scripted_trigger ep2_wedding_ewan_0061_suitable_doddering_relative_trigger = {
+	is_ai = yes
 	# Right, make sure that they're old enough for a good ramble.
 	age >= 60
 	# Must be sufficiently older than our target also.
