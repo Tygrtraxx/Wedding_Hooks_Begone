@@ -23146,6 +23146,7 @@ ep2_wedding.2011 = {
 		scope:activity = {
 			random_attending_character = {
 				limit = {
+					feast_default_adult_participant_trigger = yes
 					OR = {
 						has_trait = cynical
 						has_trait = callous
