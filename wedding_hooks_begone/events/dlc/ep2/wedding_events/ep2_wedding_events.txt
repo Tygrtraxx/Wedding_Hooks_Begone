@@ -15648,7 +15648,7 @@ ep2_wedding.1340 = {
 						save_temporary_scope_as = temp_spouse
 						prev = {
 							every_memory = {
-								limit = { has_memory_type = spouse_committed_adultery }
+								memory_type = spouse_committed_adultery
 								if = {
 									limit = { has_memory_participant = scope:temp_spouse }
 									scope:temp_spouse = { save_scope_as = adulterous_spouse }
@@ -15660,7 +15660,7 @@ ep2_wedding.1340 = {
 						save_temporary_scope_as = temp_spouse
 						prev = {
 							every_memory = {
-								limit = { has_memory_type = spouse_committed_adultery }
+								memory_type = spouse_committed_adultery
 								if = {
 									limit = { has_memory_participant = scope:temp_spouse }
 									scope:temp_spouse = { save_scope_as = adulterous_spouse }
@@ -15672,12 +15672,10 @@ ep2_wedding.1340 = {
 				if = {
 					limit = {
 						AND = {
-							any_former_spouse = {
-								count > 0
-							}
+							any_former_spouse = { }
 							NOT = {
 								any_memory = {
-									has_memory_type = spouse_died
+									memory_type = spouse_died
 								}
 							}
 						}
@@ -15748,7 +15746,7 @@ ep2_wedding.1340 = {
 					add = 70
 				}
 				modifier = {
-					has_trait = poet
+					has_trait = lifestyle_poet
 					add = 70
 				}
 				modifier = {
@@ -15805,7 +15803,7 @@ ep2_wedding.1340 = {
 					add = 70
 				}
 				modifier = {
-					has_trait = poet
+					has_trait = lifestyle_poet
 					add = 70
 				}
 				modifier = {
@@ -15845,7 +15843,7 @@ ep2_wedding.1340 = {
 					has_trait = lustful
 					any_relation = {
 						type = lover
-						NOT = { this = scope:intended }
+						this != scope:intended
 					}
 					add = 20
 				}
@@ -15863,14 +15861,14 @@ ep2_wedding.1340 = {
 				}
 				modifier = {
 					OR = {
-						any_secret = { secret_type = secret_cannibal }
+						any_secret = { type = secret_cannibal }
 						has_trait = cannibal
 					}
 					add = 20
 				}
 				modifier = {
 					OR = {
-						any_secret = { secret_type = secret_witch }
+						any_secret = { type = secret_witch }
 						has_trait = witch
 					}
 					add = 20
@@ -15905,14 +15903,14 @@ ep2_wedding.1340 = {
 			}
 			modifier = {
 				OR = {
-					any_secret = { secret_type = secret_cannibal }
+					any_secret = { type = secret_cannibal }
 					has_trait = cannibal
 				}
 				add = 20
 			}
 			modifier = {
 				OR = {
-					any_secret = { secret_type = secret_witch }
+					any_secret = { type = secret_witch }
 					has_trait = witch
 				}
 				add = 20
@@ -16769,12 +16767,12 @@ ep2_wedding.3000 = {
 		}
 		OR = { #and they are a spouse and shy; you also don't have a lover relationship already
 			scope:activity.special_guest:spouse_1 = {
-				NOT = { this = root }
+				this != root
 				NOT = { has_relation_lover = root }
 				ep2_wedding.is_valid_shy = yes
 			}
 			scope:activity.special_guest:spouse_2 = {
-				NOT = { this = root }
+				this != root
 				NOT = { has_relation_lover = root }
 				ep2_wedding.is_valid_shy = yes
 			}
@@ -16792,7 +16790,7 @@ ep2_wedding.3000 = {
 	immediate = {
 		if = {
 			limit = {
-				scope:activity.special_guest:spouse_1 = { NOT = { this = root } }
+				scope:activity.special_guest:spouse_1 = { this != root }
 			}
 			scope:activity.special_guest:spouse_1 = {
 				save_scope_as = my_spouse
@@ -17093,8 +17091,8 @@ ep2_wedding.3010 = {
 				trigger = {
 					scope:my_spouse = {
 						any_secret = {
+							type = secret_murder
 							NOT = { is_known_by = root }
-							secret_type = secret_murder
 						}
 					}
 				}
@@ -17104,8 +17102,8 @@ ep2_wedding.3010 = {
 				trigger = {
 					scope:my_spouse = {
 						any_secret = {
+							type = secret_murder_attempt
 							NOT = { is_known_by = root }
-							secret_type = secret_murder_attempt
 						}
 					}
 				}
@@ -17115,8 +17113,8 @@ ep2_wedding.3010 = {
 				trigger = {
 					scope:my_spouse = {
 						any_secret = {
+							type = secret_cannibal
 							NOT = { is_known_by = root }
-							secret_type = secret_cannibal
 						}
 					}
 				}
@@ -17126,8 +17124,8 @@ ep2_wedding.3010 = {
 				trigger = {
 					scope:my_spouse = {
 						any_secret = {
+							type = secret_deviant
 							NOT = { is_known_by = root }
-							secret_type = secret_deviant
 						}
 					}
 				}
@@ -17137,8 +17135,8 @@ ep2_wedding.3010 = {
 				trigger = {
 					scope:my_spouse = {
 						any_secret = {
+							type = secret_witch
 							NOT = { is_known_by = root }
-							secret_type = secret_witch
 						}
 					}
 				}
@@ -17148,8 +17146,8 @@ ep2_wedding.3010 = {
 				trigger = {
 					scope:my_spouse = {
 						any_secret = {
+							type = secret_non_believer
 							NOT = { is_known_by = root }
-							secret_type = secret_non_believer
 						}
 					}
 				}
@@ -17179,13 +17177,13 @@ ep2_wedding.3010 = {
 		}
 		OR = { #the other spouse has a secret
 			scope:activity.special_guest:spouse_1 = {
-				NOT = { this = root }
+				this != root
 				any_secret = {
 					NOT = { is_known_by = root }
 				}
 			}
 			scope:activity.special_guest:spouse_2 = {
-				NOT = { this = root }
+				this != root
 				any_secret = {
 					NOT = { is_known_by = root }
 				}
@@ -17204,7 +17202,7 @@ ep2_wedding.3010 = {
 	immediate = {
 		if = {
 			limit = {
-				scope:activity.special_guest:spouse_1 = { NOT = { this = root } }
+				scope:activity.special_guest:spouse_1 = { this != root }
 			}
 			scope:activity.special_guest:spouse_1 = {
 				save_scope_as = my_spouse
@@ -17445,15 +17443,15 @@ scripted_effect ep2_wedding.3020.reveal_secret_effect = {
 		limit = {
 			scope:my_spouse = {
 				any_secret = {
-					secret_type = secret_homosexual
+					type = secret_homosexual
 					NOT = { is_known_by = root }
 				}
 			}
 		}
 		scope:my_spouse = {
 			random_secret = {
+				type = secret_homosexual
 				limit = {
-					secret_type = secret_homosexual
 					NOT = { is_known_by = root }
 				}
 				reveal_to = root
@@ -17491,11 +17489,11 @@ ep2_wedding.3020 = {
 		}
 		OR = { #the other spouse doesn't fancy you
 			scope:activity.special_guest:spouse_1 = {
-				NOT = { this = root }
+				this != root
 				NOT = { is_attracted_to_gender_of = root }
 			}
 			scope:activity.special_guest:spouse_2 = {
-				NOT = { this = root }
+				this != root
 				NOT = { is_attracted_to_gender_of = root }
 			}
 		}
@@ -17508,7 +17506,7 @@ ep2_wedding.3020 = {
 	immediate = {
 		if = {
 			limit = {
-				scope:activity.special_guest:spouse_1 = { NOT = { this = root } }
+				scope:activity.special_guest:spouse_1 = { this != root }
 			}
 			scope:activity.special_guest:spouse_1 = {
 				save_scope_as = my_spouse
@@ -17677,7 +17675,7 @@ ep2_wedding.3030 = {
 		}
 		OR = { #the other spouse likes you in any way
 			scope:activity.special_guest:spouse_1 = {
-				NOT = { this = root }
+				this != root
 				OR = {
 					has_any_good_relationship_with_root_trigger = yes
 					opinion = {
@@ -17687,7 +17685,7 @@ ep2_wedding.3030 = {
 				}
 			}
 			scope:activity.special_guest:spouse_2 = {
-				NOT = { this = root }
+				this != root
 				OR = {
 					has_any_good_relationship_with_root_trigger = yes
 					opinion = {
@@ -17705,11 +17703,11 @@ ep2_wedding.3030 = {
 			factor = 1.5
 			OR = {
 				scope:activity.special_guest:spouse_1 = {
-					NOT = { this = root }
+					this != root
 					has_relation_lover = root
 				}
 				scope:activity.special_guest:spouse_2 = {
-					NOT = { this = root }
+					this != root
 					has_relation_lover = root
 				}
 			}
@@ -17718,11 +17716,11 @@ ep2_wedding.3030 = {
 			factor = 2
 			OR = {
 				scope:activity.special_guest:spouse_1 = {
-					NOT = { this = root }
+					this != root
 					has_relation_soulmate = root
 				}
 				scope:activity.special_guest:spouse_2 = {
-					NOT = { this = root }
+					this != root
 					has_relation_soulmate = root
 				}
 			}
@@ -17733,7 +17731,7 @@ ep2_wedding.3030 = {
 		save_scope_as = itsa_me_scope #used in the artifact description
 		if = {
 			limit = {
-				scope:activity.special_guest:spouse_1 = { NOT = { this = root } }
+				scope:activity.special_guest:spouse_1 = { this != root }
 			}
 			scope:activity.special_guest:spouse_1 = {
 				save_scope_as = my_spouse
@@ -17766,13 +17764,13 @@ ep2_wedding.3030 = {
 			limit = {
 				any_character_artifact = {
 					artifact_slot_type = miscellaneous
-					NOT = { this = scope:love_memento }
+					this != scope:love_memento
 				}
 			}
 			random_character_artifact = {
 				limit = {
 					artifact_slot_type = miscellaneous
-					NOT = { this = scope:love_memento }
+					this != scope:love_memento
 				}
 				save_scope_as = my_love_memento
 			}
@@ -18087,7 +18085,7 @@ ep2_wedding.3040 = {
 	immediate = {
 		if = {
 			limit = {
-				scope:activity.special_guest:spouse_1 = { NOT = { this = root } }
+				scope:activity.special_guest:spouse_1 = { this != root }
 			}
 			scope:activity.special_guest:spouse_1 = {
 				save_scope_as = my_spouse
@@ -18401,8 +18399,7 @@ ep2_wedding.3050 = {
 		}
 		modifier = { #more likely for them to stay behind
 			factor = 1.5
-			exists = intent_target
-			intent_target = {
+			intent_target ?= {
 				OR = {
 					has_trait = drunkard
 					has_trait = gregarious
@@ -18455,8 +18452,8 @@ ep2_wedding.3050 = {
 						target = scope:intent_victim
 					}
 					random_secret = {
+						type = secret_murder_attempt
 						limit = {
-							secret_type = secret_murder_attempt
 							secret_target = scope:intent_victim
 						}
 						expose_secret = scope:intent_victim
@@ -19197,7 +19194,7 @@ ep2_wedding.3300 = {
 			triggered_desc = {
 				trigger = {
 					exists = scope:jester 
-					NOT = { scope:jester.employer = root }
+					scope:jester.employer != root
 				}
 				desc = ep2_wedding.3300.jester
 			}
@@ -19467,28 +19464,28 @@ ep2_wedding.3300 = {
 		if = {
 			limit = {
 				exists = scope:jester
-				NOT = { scope:jester = scope:bedding_witness_1 }
+				scope:jester != scope:bedding_witness_1
 			}
 			scope:jester = { save_scope_as = bedding_witness_1 }
 		}
 		else_if = {
 			limit = {
 				exists = scope:other_friend
-				NOT = { scope:other_friend = scope:bedding_witness_1 }
+				scope:other_friend != scope:bedding_witness_1
 			}
 			scope:other_friend = { save_scope_as = bedding_witness_1 }
 		}
 		else_if = {
 			limit = {
 				exists = scope:other_spouse
-				NOT = { scope:other_spouse = scope:bedding_witness_1 }
+				scope:other_spouse != scope:bedding_witness_1
 			}
 			scope:other_spouse = { save_scope_as = bedding_witness_1 }
 		}
 		else_if = {
 			limit = {
 				exists = scope:family
-				NOT = { scope:family = scope:bedding_witness_1 }
+				scope:family != scope:bedding_witness_1
 			}
 			scope:family = { save_scope_as = bedding_witness_1 }
 		}
@@ -20069,7 +20066,7 @@ ep2_wedding.3400 = {
 				trigger = {
 					exists = house
 					exists = scope:other_family_relative.house
-					NOT = { house = scope:other_family_relative.house }
+					house != scope:other_family_relative.house
 					scope:other_family_relative = { drinks_alcohol_trigger = yes }
 				}
 				desc = ep2_wedding.3400.drink_house
@@ -20078,7 +20075,7 @@ ep2_wedding.3400 = {
 				trigger = {
 					exists = house
 					exists = scope:other_family_relative.house
-					NOT = { house = scope:other_family_relative.house }
+					house != scope:other_family_relative.house
 					scope:other_family_relative = { drinks_alcohol_trigger = no }
 				}
 				desc = ep2_wedding.3400.house
@@ -20511,7 +20508,7 @@ ep2_wedding.3410 = {
 					OR = {
 						has_relation_lover = scope:jealousy_focus
 						any_secret = {
-							secret_type = secret_lover
+							type = secret_lover
 							secret_target = scope:jealousy_focus
 						}
 					}
@@ -20587,11 +20584,11 @@ ep2_wedding.3410 = {
 		# Has an intimate relationship with a spouse
 		OR = {
 			any_secret = {
-				secret_type = secret_lover
+				type = secret_lover
 				secret_target = scope:activity.special_guest:spouse_1
 			}
 			any_secret = {
-				secret_type = secret_lover
+				type = secret_lover
 				secret_target = scope:activity.special_guest:spouse_2
 			}
 			has_relation_lover = scope:activity.special_guest:spouse_1
@@ -20607,7 +20604,7 @@ ep2_wedding.3410 = {
 			limit = {
 				OR = {
 					any_secret = {
-						secret_type = secret_lover
+						type = secret_lover
 						secret_target = scope:activity.special_guest:spouse_1
 					}
 					has_relation_lover = scope:activity.special_guest:spouse_1
@@ -20615,7 +20612,7 @@ ep2_wedding.3410 = {
 				}
 				OR = {
 					any_secret = {
-						secret_type = secret_lover
+						type = secret_lover
 						secret_target = scope:activity.special_guest:spouse_2
 					}
 					has_relation_lover = scope:activity.special_guest:spouse_2
@@ -20631,7 +20628,7 @@ ep2_wedding.3410 = {
 					trigger = {
 						OR = {
 							any_secret = {
-								secret_type = secret_lover
+								type = secret_lover
 								secret_target = scope:activity.special_guest:spouse_1
 							}
 							has_relation_lover = scope:activity.special_guest:spouse_1
@@ -20649,7 +20646,7 @@ ep2_wedding.3410 = {
 					trigger = {
 						OR = {
 							any_secret = {
-								secret_type = secret_lover
+								type = secret_lover
 								secret_target = scope:activity.special_guest:spouse_2
 							}
 							has_relation_lover = scope:activity.special_guest:spouse_2
@@ -20685,7 +20682,7 @@ ep2_wedding.3410 = {
 		if = {
 			limit = {
 				any_secret = {
-					secret_type = secret_lover
+					type = secret_lover
 					secret_target = scope:jealousy_focus
 				}
 			}
@@ -20723,7 +20720,7 @@ ep2_wedding.3410 = {
 			}
 			modifier = {
 				any_secret = {
-					secret_type = secret_lover
+					type = secret_lover
 					secret_target = scope:jealousy_usurper
 				}
 				factor = 0.5
@@ -20737,7 +20734,7 @@ ep2_wedding.3410 = {
 		trigger = {
 			NOR = {
 				any_secret = {
-					secret_type = secret_lover
+					type = secret_lover
 					secret_target = scope:jealousy_usurper
 				}
 				has_relation_lover = scope:jealousy_usurper
@@ -20753,8 +20750,8 @@ ep2_wedding.3410 = {
 			type = murder
 		}
 		random_scheme = {
+			type = murder
 			limit = {
-				scheme_type = murder
 				scheme_target_character = scope:jealousy_usurper
 			}
 			add_scheme_modifier = { type = wedding_consorts_envy_modifier }
@@ -21887,7 +21884,7 @@ ep2_wedding.3420 = {
 		trait = contrite
 		if = {
 			limit = {
-				NOT = { root = scope:blab_guest }
+				root != scope:blab_guest
 			}
 			reverse_add_opinion = {
 				target = scope:blab_guest
@@ -22457,7 +22454,7 @@ ep2_wedding.3500 = {
 			desc = ep2_wedding.3500.time
 		}
 	}	
-	theme = marriage #TODO_CD_EP2
+	theme = marriage
 	override_background = { reference = feast }
 	left_portrait = {
 		character = scope:my_family_relative_1
@@ -23304,7 +23301,7 @@ ep2_wedding.2020 = {
 	trigger = {
 		#DLC check.
 		has_ep2_dlc_trigger = yes
-		NOT = { this = scope:host }
+		this != scope:host
 		scope:activity = {
 			any_attending_character = {
 				ep2_wedding_2020_would_fall_trigger = yes
