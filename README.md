@@ -14,9 +14,6 @@ The next thing you know, civil war.
 
 2. **Unzip the File**  
    After unzipping, you will see several items, such as:
-    - `.git/`
-    - `.gitattributes`
-    - `Wedding_Hooks_Begone.code-workspace`
     - `wedding_hooks_begone/`
     - `wedding_hooks_begone.mod`
     - `README.MD`
