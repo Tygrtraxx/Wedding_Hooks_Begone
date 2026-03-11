@@ -5,6 +5,6 @@ tags={
 }
 name="Wedding Hooks, Begone!"
 picture="thumbnail.png"
-supported_version="1.18.3*"
+supported_version="1.18.4*"
 path="C:/Documents/Paradox Interactive/Crusader Kings III/mod/wedding_hooks_begone"
 remote_file_id="3226148522"
